@@ -1,3 +1,41 @@
 <%- include('partials/header.ejs') %>
-    <h1>Em construção</h1>
+
+<form action="/pokemon" method="POST">
+  <label for="search">Buscar Pokémon:</label>
+  <input type="text" id="pokemonName" name="pokemonName" placeholder="Digite o nome do Pokémon">
+  <button type="submit">Buscar</button>
+</form>
+
+<div class="pokemon-list">
+  <% if (Array.isArray(pokemonData)) { %>
+    <% pokemonData.forEach(pokemon => { %>
+      <div class="pokemon-card">
+        <h1><%= pokemon.name %></h1>
+        <img src="<%= pokemon.sprites.front_default %>" alt="<%= pokemon.name %>" />
+        <p>Peso: <%= pokemon.weight %> kg</p>
+        <p>Altura: <%= pokemon.height %> m</p>
+        <p>Tipo(s): 
+          <% pokemon.types.forEach(type => { %>
+            <%= type.type.name %>
+          <% }); %>
+        </p>
+        <!-- Outras informações do Pokémon podem ser adicionadas aqui -->
+      </div>
+    <% }); %>
+  <% } else { %>
+    <div class="pokemon-card">
+      <h1><%= pokemonData.name %></h1>
+      <img src="<%= pokemonData.sprites.front_default %>" alt="<%= pokemonData.name %>" />
+      <p>Peso: <%= pokemonData.weight %> kg</p>
+      <p>Altura: <%= pokemonData.height %> m</p>
+      <p>Tipo(s): 
+        <% pokemonData.types.forEach(type => { %>
+          <%= type.type.name %>
+        <% }); %>
+      </p>
+      <!-- Outras informações do Pokémon podem ser adicionadas aqui -->
+    </div>
+  <% } %>
+</div>
+
 <%- include('partials/footer.ejs') %>

@@ -1,3 +1,68 @@
+/* Estilos gerais */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+
+.pokemon-list {
+  display: flex;
+  flex-wrap: wrap; /* Permite que os elementos quebrem para a próxima linha quando não couberem mais */
+  justify-content: center; /* Centraliza os elementos horizontalmente */
+  align-items: flex-start; /* Alinha os elementos no topo verticalmente */
+  margin: 0 auto; /* Centraliza a lista horizontalmente */
+}
+
+.pokemon-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 20px;
+  margin: 10px;
+  width: 300px; /* Largura fixa para os cards */
+}
+
+/* Estilos para o nome do Pokémon */
 h1 {
-  color: blue;
+  color: #e44d26; /* Cor laranja */
+}
+
+/* Estilos para o peso e altura do Pokémon */
+p {
+  color: #666;
+}
+
+/* Estilos para a barra de busca */
+form {
+  text-align: center;
+  margin: 20px 0;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 300px;
+}
+
+button[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
 }
