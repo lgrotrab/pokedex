@@ -20,7 +20,7 @@ async function fetchPokemonData(url) {
 app.get("/", async (req, res) => {
   try {
     const response = await axios.get(
-      "https://pokeapi.co/api/v2/pokemon?limit=151",
+      "https://pokeapi.co/api/v2/pokemon?limit=386",
     );
     const pokemonList = response.data.results;
 
@@ -38,21 +38,25 @@ app.get("/", async (req, res) => {
 
 // Rota para receber o nome do Pokémon por meio de um formulário POST
 app.post("/pokemon", async (req, res) => {
-  try {
-    const pokemonName = req.body.pokemonName.toLowerCase(); // Transforma o nome para minúsculo
-    const response = await axios.get(
-      `https://pokeapi.co/api/v2/pokemon/${pokemonName}`,
-    );
-    const pokemonData = response.data;
+  if (req.body.pokemonName === "") {
+    res.redirect("/");
+  } else {
+    try {
+      const pokemonName = req.body.pokemonName.toLowerCase(); // Transforma o nome para minúsculo
+      const response = await axios.get(
+        `https://pokeapi.co/api/v2/pokemon/${pokemonName}`,
+      );
+      const pokemonData = response.data;
 
-    res.render("index.ejs", { pokemonData });
-  } catch (error) {
-    if (error.response && error.response.status === 404) {
-      // Se o status 404 for retornado, significa que o Pokémon não foi encontrado
-      res.status(404).send("Pokémon não encontrado.");
-    } else {
-      console.error("Erro ao buscar dados do Pokémon:", error);
-      res.status(500).send("Erro ao buscar dados do Pokémon");
+      res.render("index.ejs", { pokemonData });
+    } catch (error) {
+      if (error.response && error.response.status === 404) {
+        // Se o status 404 for retornado, significa que o Pokémon não foi encontrado
+        res.status(404).send("Pokémon não encontrado.");
+      } else {
+        console.error("Erro ao buscar dados do Pokémon:", error);
+        res.status(500).send("Erro ao buscar dados do Pokémon");
+      }
     }
   }
 });
