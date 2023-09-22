@@ -1,8 +1,11 @@
 import express from "express";
 import axios from "axios";
 import bodyParser from "body-parser";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
 const app = express();
 
+const __dirname = dirname(fileURLToPath(import.meta.url));
 app.use(express.static("public"));
 app.use(bodyParser.json()); //Adicionado para aceitar dados em formato de objeto dos testes
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -28,7 +31,7 @@ app.get("/", async (req, res) => {
       fetchPokemonData(pokemon.url),
     );
     const pokemonData = await Promise.all(pokemonDataPromises);
-    res.render("index.ejs", { pokemonData });
+    res.render(__dirname + "../../views/index.ejs", { pokemonData });
   } catch (error) {
     console.error("Erro ao buscar dados dos Pokémon:", error.message);
     res.status(404).send("Erro ao buscar dados dos Pokémon");
@@ -47,7 +50,7 @@ app.post("/pokemon", async (req, res) => {
       );
       const pokemonData = response.data;
 
-      res.render("index.ejs", { pokemonData });
+      res.render(__dirname + "../../views/index.ejs", { pokemonData });
     } catch (error) {
       if (error.response && error.response.status === 404) {
         // Se o status 404 for retornado, significa que o Pokémon não foi encontrado
