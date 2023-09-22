@@ -46,7 +46,7 @@ describe("Testa as portas / com protocolo GET", () => {
 
   test("deve retornar status 200 e dados válidos", async () => {
     // Configura o mock para responder com os dados simulados
-    const mockUrl = "https://pokeapi.co/api/v2/pokemon?limit=386";
+    const mockUrl = "https://pokeapi.co/api/v2/pokemon?limit=151";
     const mockBulbasaurUrl = "https://pokeapi.co/api/v2/pokemon/1/";
     const mockIvisaurUrl = "https://pokeapi.co/api/v2/pokemon/2/";
     const mockData = {
