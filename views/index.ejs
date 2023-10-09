@@ -12,8 +12,10 @@
       <div class="pokemon-card">
         <h1><%= pokemon.name %></h1>
         <img src="<%= pokemon.sprites.front_default %>" alt="<%= pokemon.name %>" />
-        <p>Peso: <%= pokemon.weight %> kg</p>
-        <p>Altura: <%= pokemon.height %> m</p>
+        <% const pesoPokemon = pokemon.weight/10 %>
+        <p>Peso: <%= pesoPokemon %> kg</p>
+        <% let alturaPokemon = pokemon.height/10 %>
+        <p>Altura: <%= alturaPokemon%> m</p>
         <p>Tipo(s): 
           <% pokemon.types.forEach(type => { %>
             <%= type.type.name %>
@@ -25,7 +27,9 @@
     <div class="pokemon-card">
       <h1><%= pokemonData.name %></h1>
       <img src="<%= pokemonData.sprites.front_default %>" alt="<%= pokemonData.name %>" />
-      <p>Peso: <%= pokemonData.weight %> kg</p>
+      <% const pesoPokemon = pokemonData.weight /10 %>
+      <p>Peso: <%= pesoPokemon %> kg</p>
+      <% const alturaPokemon = pokemonData.height/10 %>
       <p>Altura: <%= pokemonData.height %> m</p>
       <p>Tipo(s): 
         <% pokemonData.types.forEach(type => { %>
