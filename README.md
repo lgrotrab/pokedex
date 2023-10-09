@@ -4,7 +4,7 @@
 ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
 ![Jest](https://img.shields.io/badge/-jest-%23C21325?style=for-the-badge&logo=jest&logoColor=white)
 
-A Pokédex é um projeto de estudo do curso The Complete 2023 Web Development Bootcamp, a ideia é construir uma lista simples mostrando alguns dados dos pokémons da primeira geração, usnado express, axios e ejs.
+A Pokédex é um projeto de estudo do curso The Complete 2023 Web Development Bootcamp, a ideia é construir uma lista simples mostrando alguns dados dos pokémons da primeira geração, usando express, axios e ejs.
 O projeto irá contar com uma api simples que irá ser responsável por renderizar os arquivos ejs para mostrar os pokémons além de utilizar axios para fazer requisições para a PokeAPI
 
 ## 💻 Pré-requisitos
